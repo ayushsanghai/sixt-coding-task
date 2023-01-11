@@ -11,9 +11,7 @@ import com.example.sixt.databinding.LayoutLoadingScreenBinding
 import com.example.sixt.view.adapters.CarAdapter
 import com.example.sixt.viewmodel.CarViewModel
 
-/**
- * A simple [Fragment] subclass as the default destination in the navigation.
- */
+
 class CarListFragment : Fragment() {
 
     private lateinit var _binding: FragmentCarListBinding
@@ -29,16 +27,11 @@ class CarListFragment : Fragment() {
         LayoutLoadingScreenBinding.inflate(inflater,container,false)
 
         _binding = FragmentCarListBinding.inflate(inflater, container, false)
-        _binding.isLoading = true
         observeViewModel()
         setUpCarAdapter()
         return _binding.root
     }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-        _binding.isLoading = false
-    }
 
     //observe view model live data
     private fun observeViewModel() {
