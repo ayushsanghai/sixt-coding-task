@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="deep_orange_200">#FFFFAB91</color>
+    <color name="deep_orange_500">#FFFF5722</color>
+    <color name="deep_orange_700">#FFE64A19</color>
+    <color name="blue_grey_200">#FFB0BEC5</color>
+    <color name="blue_grey_700">#AA455A64</color>
+    <color name="blue_grey_50">#ECEFF1</color>
+    <color name="teal_200">#FF03DAC5</color>
+    <color name="teal_700">#FF018786</color>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="primary">#FF000000</color>
+    <color name="orange">#FFE64A19</color>
+    <color name="grey">#FF6E6E6E</color>
+</resources>

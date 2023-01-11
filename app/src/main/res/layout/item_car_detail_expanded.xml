@@ -1,0 +1,414 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="carModel"
+            type="com.example.sixt.model.data.CarModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:layout_marginBottom="-16dp"
+        android:clipChildren="false"
+        android:clipToPadding="false"
+        android:outlineProvider="none">
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/card"
+            android:layout_width="match_parent"
+            android:layout_height="160dp"
+            android:layout_marginTop="120dp"
+            android:animateLayoutChanges="true"
+            android:clipChildren="false"
+            android:clipToPadding="false"
+            android:outlineProvider="none"
+            android:visibility="visible"
+            app:cardBackgroundColor="@color/blue_grey_50"
+            app:cardCornerRadius="16dp"
+            app:cardElevation="8dp"
+            app:cardMaxElevation="8dp"
+            app:cardPreventCornerOverlap="false"
+            app:contentPaddingBottom="32dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:layout_height="160dp">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/constraintLayout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:clipChildren="false"
+                android:clipToPadding="false"
+                android:outlineProvider="none"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/car_image">
+
+                <ImageView
+                    android:id="@+id/car_image"
+                    android:layout_width="200dp"
+                    android:layout_height="128dp"
+                    android:layout_marginTop="-16dp"
+                    android:layout_marginEnd="-8dp"
+                    android:adjustViewBounds="true"
+                    android:contentDescription="@string/car_image"
+                    android:cropToPadding="false"
+                    android:elevation="24dp"
+                    android:scaleType="centerCrop"
+                    android:scaleX="1.1"
+                    android:scaleY="1.1"
+                    app:carImage="@{carModel.carImageUrl}"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:srcCompat="@drawable/fall_back_image" />
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/expanded_layout_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:alpha="0">
+
+                    <TextView
+                        android:id="@+id/textView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="56dp"
+                        android:fontFamily="@font/roboto_bold"
+                        android:text="@{carModel.modelName}"
+                        android:textColor="@color/orange"
+                        android:textSize="20sp"
+                        android:typeface="normal"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:text="MINI COUNTRYMAN"
+                        tools:visibility="visible" />
+
+                    <TextView
+                        android:id="@+id/fuel_type_label_textview"
+                        style="@style/label_text_style"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginTop="24dp"
+                        android:text="@string/fuel_type"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/textView"
+                        tools:visibility="visible" />
+
+                    <TextView
+                        android:id="@+id/fuel_type_textview"
+                        style="@style/description_text_style"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginEnd="24dp"
+                        app:fuelTypeDisplay="@{carModel.fuelType}"
+                        app:layout_constraintBottom_toBottomOf="@id/fuel_type_label_textview"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="1.0"
+                        app:layout_constraintStart_toEndOf="@id/fuel_type_label_textview"
+                        app:layout_constraintTop_toTopOf="@id/fuel_type_label_textview"
+                        tools:text="ELECTRIC"
+                        tools:visibility="visible" />
+
+                    <TextView
+                        android:id="@+id/fuel_level_label_textview"
+                        style="@style/label_text_style"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginTop="16dp"
+                        android:text="@string/fuel_level"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/fuel_type_label_textview"
+                        tools:visibility="visible" />
+
+                    <TextView
+                        android:id="@+id/fuel_level_textview"
+                        style="@style/description_text_style"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="16dp"
+                        app:fuelLevelDisplay="@{carModel.fuelLevel}"
+                        app:layout_constraintBottom_toBottomOf="@id/fuel_level_label_textview"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="1.0"
+                        app:layout_constraintStart_toEndOf="@+id/fuel_level_label_textview"
+                        app:layout_constraintTop_toTopOf="@id/fuel_level_label_textview"
+                        tools:text="70%"
+                        tools:visibility="visible" />
+
+                    <TextView
+                        android:id="@+id/car_color_label_textview"
+                        style="@style/label_text_style"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginTop="16dp"
+                        android:text="@string/color"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/fuel_level_label_textview"
+                        tools:visibility="visible" />
+
+                    <TextView
+                        android:id="@+id/car_color_textview"
+                        style="@style/description_text_style"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginEnd="24dp"
+                        app:colorDisplay="@{carModel.color}"
+                        app:layout_constraintBottom_toBottomOf="@id/car_color_label_textview"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="1.0"
+                        app:layout_constraintStart_toEndOf="@id/car_color_label_textview"
+                        app:layout_constraintTop_toTopOf="@id/car_color_label_textview"
+                        tools:text="ICED CHOCOLATE METAL"
+                        tools:visibility="visible" />
+
+                    <TextView
+                        android:id="@+id/inner_cleanliness_label_textview"
+                        style="@style/label_text_style"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginTop="16dp"
+                        android:text="@string/inner_cleanliness"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/car_color_label_textview"
+                        tools:visibility="visible" />
+
+                    <TextView
+                        android:id="@+id/inner_cleanliness_textview"
+                        style="@style/description_text_style"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginEnd="24dp"
+                        app:colorDisplay="@{carModel.innerCleanliness}"
+                        app:layout_constraintBottom_toBottomOf="@id/inner_cleanliness_label_textview"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="1.0"
+                        app:layout_constraintStart_toEndOf="@id/inner_cleanliness_label_textview"
+                        app:layout_constraintTop_toTopOf="@id/inner_cleanliness_label_textview"
+                        tools:text="VERY CLEAN"
+                        tools:visibility="visible" />
+
+                    <TextView
+                        android:id="@+id/license_plate_label_textview"
+                        style="@style/label_text_style"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginTop="16dp"
+                        android:text="@string/license_plate"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/inner_cleanliness_label_textview"
+                        tools:visibility="visible" />
+
+                    <TextView
+                        android:id="@+id/license_plate_textview"
+                        style="@style/description_text_style"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginEnd="24dp"
+                        android:text="@{carModel.licensePlate}"
+                        app:layout_constraintBottom_toBottomOf="@id/license_plate_label_textview"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="1.0"
+                        app:layout_constraintStart_toEndOf="@id/license_plate_label_textview"
+                        app:layout_constraintTop_toTopOf="@id/license_plate_label_textview"
+                        tools:text="M-VO0270"
+                        tools:visibility="visible" />
+
+                    <TextView
+                        android:id="@+id/transmission_type_label_textview"
+                        style="@style/label_text_style"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginTop="16dp"
+                        android:layout_marginBottom="16dp"
+                        android:text="@string/transmission"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/license_plate_label_textview"
+                        tools:visibility="visible" />
+
+                    <TextView
+                        android:id="@+id/transmission_type_textview"
+                        style="@style/description_text_style"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginEnd="24dp"
+                        app:layout_constraintBottom_toBottomOf="@id/transmission_type_label_textview"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="1.0"
+                        app:layout_constraintStart_toEndOf="@id/transmission_type_label_textview"
+                        app:layout_constraintTop_toTopOf="@id/transmission_type_label_textview"
+                        app:transmissionDisplay="@{carModel.transmission}"
+                        tools:text="AUTOMATIC"
+                        tools:visibility="visible" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/collapsed_layout_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:alpha="1">
+
+                    <TextView
+                        android:id="@+id/textView1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="24dp"
+                        android:layout_marginTop="16dp"
+                        android:fontFamily="@font/roboto_bold"
+                        android:text="@{carModel.modelName}"
+                        android:textColor="@color/orange"
+                        android:textSize="18sp"
+                        android:typeface="normal"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:text="MINI COUNTRYMAN" />
+
+                    <ProgressBar
+                        android:id="@+id/progressWheel"
+                        style="?android:attr/progressBarStyleHorizontal"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_marginStart="24dp"
+                        android:layout_marginTop="8dp"
+                        android:indeterminate="false"
+                        android:max="133"
+                        android:progress="100"
+                        android:progressDrawable="@drawable/circular_progress_bar"
+                        app:fuelLevelIndicator="@{carModel.fuelLevel}"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/textView1"
+                        tools:visibility="visible" />
+
+                    <TextView
+                        android:id="@+id/textView3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:fontFamily="@font/roboto_medium"
+                        android:textAlignment="center"
+                        android:textColor="@color/orange"
+                        app:fuelTypeDisplay="@{carModel.fuelType}"
+                        app:layout_constraintBottom_toBottomOf="@+id/imageView3"
+                        app:layout_constraintStart_toEndOf="@+id/imageView3"
+                        app:layout_constraintTop_toTopOf="@+id/imageView3"
+                        tools:text="DIESEL"
+                        tools:visibility="visible" />
+
+                    <ImageView
+                        android:id="@+id/imageView3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="32dp"
+                        android:contentDescription="@string/progress_wheel"
+                        app:layout_constraintBottom_toBottomOf="@+id/progressWheel"
+                        app:layout_constraintStart_toEndOf="@+id/progressWheel"
+                        app:layout_constraintTop_toTopOf="@+id/progressWheel"
+                        app:srcCompat="@drawable/ic_baseline_water_drop_24"
+                        app:tint="@color/grey"
+                        tools:visibility="visible" />
+
+                    <ImageView
+                        android:id="@+id/imageView4"
+                        android:layout_width="0dp"
+                        android:layout_height="24dp"
+                        android:layout_marginStart="32dp"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginBottom="16dp"
+                        android:adjustViewBounds="true"
+                        android:contentDescription="@string/progress_wheel"
+                        android:cropToPadding="false"
+                        android:scaleType="fitXY"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/progressWheel"
+                        app:tint="@color/grey"
+                        app:transmissionIcon="@{carModel.transmission}"
+                        tools:srcCompat="@drawable/ic_manual_transmission"
+                        tools:visibility="visible" />
+
+                    <TextView
+                        android:id="@+id/textView4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:fontFamily="@font/roboto_bold"
+                        android:text="@{carModel.transmission}"
+                        android:textColor="@color/orange"
+                        android:textSize="16sp"
+                        app:layout_constraintBottom_toBottomOf="@+id/imageView4"
+                        app:layout_constraintStart_toEndOf="@+id/imageView4"
+                        app:layout_constraintTop_toTopOf="@+id/imageView4"
+                        tools:text="M"
+                        tools:visibility="visible" />
+
+                    <TextView
+                        android:id="@+id/textView5"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:ellipsize="end"
+                        android:fontFamily="@font/roboto_medium"
+                        android:maxLines="1"
+                        android:textColor="@color/orange"
+                        android:textSize="11sp"
+                        app:colorDisplay="@{carModel.color}"
+                        app:layout_constraintBottom_toBottomOf="@+id/imageView4"
+                        app:layout_constraintStart_toStartOf="@+id/textView6"
+                        app:layout_constraintTop_toBottomOf="@+id/textView6"
+                        tools:text="MIDNIGHT BLACK"
+                        tools:visibility="visible" />
+
+                    <TextView
+                        android:id="@+id/textView6"
+                        android:layout_width="0dp"
+                        android:layout_height="19dp"
+                        android:layout_marginTop="-4dp"
+                        android:fontFamily="@font/roboto_black"
+                        android:text="@string/color"
+                        android:textColor="@color/grey"
+                        app:layout_constraintStart_toStartOf="@+id/imageView3"
+                        app:layout_constraintTop_toTopOf="@+id/imageView4"
+                        tools:visibility="visible" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <ImageView
+            android:id="@+id/card_expand_indicator"
+            android:layout_width="56dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginBottom="-16dp"
+            android:background="@drawable/background_image_circular"
+            android:elevation="10dp"
+            app:layout_constraintBottom_toTopOf="@+id/card"
+            app:layout_constraintStart_toStartOf="parent"
+            app:srcCompat="@drawable/ic_baseline_keyboard_arrow_up_24"
+            android:contentDescription="@string/card_expand_button" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

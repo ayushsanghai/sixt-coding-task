@@ -1,0 +1,28 @@
+<resources>
+    <string name="app_name">Sixt</string>
+    <string name="action_settings">Settings</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+    <string name="car_image">car image</string>
+    <string name="fuel_type">FUEL TYPE:</string>
+    <string name="fuel_level">FUEL LEVEL:</string>
+    <string name="color">COLOR:</string>
+    <string name="inner_cleanliness">INNER CLEANLINESS:</string>
+    <string name="license_plate">LICENSE PLATE:</string>
+    <string name="transmission">TRANSMISSION:</string>
+    <string name="progress_wheel">progress wheel</string>
+    <string name="map_view">Map View</string>
+    <string name="list_view">List View</string>
+    <string name="diesel">DIESEL</string>
+    <string name="petrol">PETROL</string>
+    <string name="electric">ELECTRIC</string>
+    <string name="fuel_level_display">%2$d%</string>
+    <string name="manual">MANUAL</string>
+    <string name="automatic">AUTOMATIC</string>
+    <string name="fuel_drop_icon">Fuel Drop Icon</string>
+    <string name="transmission_icon">Transmission Icon</string>
+    <string name="card_expand_button">Card Expand Button</string>
+
+
+</resources>
